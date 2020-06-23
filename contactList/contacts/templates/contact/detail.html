@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}
+  <title>Contact|{{contact.full_name}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="card mt-5">
+    <div class="card-header"><h2 class='card-title'>{{contact.title}} {{contact.full_name}}</h2></div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md"><h4>First Name: <span class="info">{{contact.first_name}}</span></h4></div>
+            <div class="col-md"><h4>Last Name:  <span class="info">{{contact.last_name}}</span></h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md"><h4>Phone No.:  <span class="info">{{contact.phone}}</span></h4></div>
+            <div class="col-md"><h4>E-mail:  <a href='mailto:{{contact.email}}'class="info">{{contact.email}}</a></h4></div>
+        </div>
+        <a class='btn md-btn' href="{% url 'contacts:contact_update' pk=contact.id%}">Update</a>
+    </div>
+</div>
+  
+{% endblock content %}
